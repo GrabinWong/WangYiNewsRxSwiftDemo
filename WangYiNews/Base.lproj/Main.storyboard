@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ezj-0z-aMS">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="rO2-Nd-kGz">
+            <objects>
+                <navigationController id="ezj-0z-aMS" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u8j-nj-lLN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dhe-0d-0wP" kind="relationship" relationship="rootViewController" id="Ud4-gw-lgA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gym-NQ-R98" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-686" y="77"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="SZ2-wX-r4g">
+            <objects>
+                <viewController id="dhe-0d-0wP" customClass="ViewController" customModule="WangYiNews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sdq-W8-0ya">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mv5-kz-4ft">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mv5-kz-4ft" firstAttribute="leading" secondItem="vch-vj-S50" secondAttribute="leading" id="Gbf-Do-u9x"/>
+                            <constraint firstItem="vch-vj-S50" firstAttribute="bottom" secondItem="mv5-kz-4ft" secondAttribute="bottom" id="SC8-b8-ZtY"/>
+                            <constraint firstItem="mv5-kz-4ft" firstAttribute="top" secondItem="vch-vj-S50" secondAttribute="top" id="Zzd-k5-w5v"/>
+                            <constraint firstItem="vch-vj-S50" firstAttribute="trailing" secondItem="mv5-kz-4ft" secondAttribute="trailing" id="eK0-vw-0d4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vch-vj-S50"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ltm-dS-ihE">
+                        <barButtonItem key="rightBarButtonItem" title="refresh" id="Y0Y-Aj-swC"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="refreshItem" destination="Y0Y-Aj-swC" id="u59-Mh-4wT"/>
+                        <outlet property="tableView" destination="mv5-kz-4ft" id="tA2-q4-ppW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DKi-pL-FQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="42" y="76"/>
+        </scene>
+    </scenes>
+</document>
