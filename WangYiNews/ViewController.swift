@@ -20,9 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         
-        self.offset.asObservable()
-            .bind(to: viewModel.offset)
-            .disposed(by: disposeBag)
+        let output = viewModel.transform(input: offset, dependecies: NewsDataManager.shared)
         
         dataSource = RxTableViewSectionedReloadDataSource<NewsSections>(configureCell: { dataSource, tableView, indexpath, item  in
             if item.imgnewextra?.isEmpty ?? true,
@@ -39,8 +37,7 @@ class ViewController: UIViewController {
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
-        viewModel.newsData
-            .drive(tableView.rx.items(dataSource: dataSource))
+        output.drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
 
         refreshItem.rx.tap.bind {

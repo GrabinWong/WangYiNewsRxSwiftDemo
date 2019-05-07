@@ -3,14 +3,14 @@ import RxCocoa
 
 class NewsViewModel: NSObject {
     // input
-    let offset = Variable("")
-    
-    // output
-    var newsData: Driver<[NewsSections]> {
+    private var offset = Variable("")
+
+    func transform(input: (Variable<String>), dependecies: (NewsDataManager)) -> Driver<[NewsSections]> {
+        self.offset = input
         return offset.asObservable()
             .throttle(0.3, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .flatMap(NewsDataManager.shared.getNews)
+            .flatMap(dependecies.getNews)
             .asDriver(onErrorJustReturn: [])
     }
 
